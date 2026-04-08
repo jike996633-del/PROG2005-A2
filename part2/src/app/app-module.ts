@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
-// 👇 完全、彻底、100% 匹配你的文件结构
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Home } from './home/home';
@@ -20,8 +20,9 @@ import { ItemDetail } from './item-detail/item-detail';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    CommonModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [App]
