@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:,"> <!-- 消除 favicon 404 报错 -->
+</head>
+<body>
+  <h1>Inventory Management</h1>
+
+  <div class="form-container">
+    <h3>Add / Update Item</h3>
+    <input id="itemId" placeholder="Item ID (unique)" required><br>
+    <input id="itemName" placeholder="Item Name" required><br>
+    <select id="category">
+      <option>Electronics</option>
+      <option>Furniture</option>
+      <option>Clothing</option>
+      <option>Tools</option>
+      <option>Miscellaneous</option>
+    </select><br>
+    <input type="number" id="quantity" placeholder="Quantity" min="0" required><br>
+    <input type="number" id="price" placeholder="Price" min="0" step="0.01" required><br>
+    <input id="supplier" placeholder="Supplier Name" required><br>
+    <select id="stockStatus">
+      <option>In Stock</option>
+      <option>Low Stock</option>
+      <option>Out of Stock</option>
+    </select><br>
+    <select id="popular">
+      <option>Yes</option>
+      <option>No</option>
+    </select><br>
+    <textarea id="comment" placeholder="Comment (optional)"></textarea><br>
+    <button onclick="addItem()">Add Item</button>
+  </div>
+
+  <hr>
+
+  <div class="search-bar">
+    <input id="searchName" placeholder="Search by item name" oninput="searchItem()">
+    <button onclick="showAll()">Show All Items</button>
+    <button onclick="showPopular()">Show Popular Items</button>
+  </div>
+
+  <hr>
+
+  <div id="output"></div>
+  <div id="message" class="message"></div>
+
+  <!-- 核心：普通脚本模式，兼容本地 file:// 协议，彻底解决 CORS 报错 -->
+  <script src="app.js"></script>
+</body>
+</html>
